@@ -1,5 +1,6 @@
 package com.Dasanayaka.Backend.config;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
@@ -19,13 +20,26 @@ public class JwtProvider {
 
       Collection<? extends GrantedAuthority> authorities =auth.getAuthorities();
       String roles= populateAuthorities(authorities);
-      String Jwt = Jwts.builder().setIssuedAt(new Date(()))
+      String Jwt = Jwts.builder().setIssuedAt(new Date())
               .setExpiration((new Date((new Date().getTime()+86400000))))
               .claim("email", auth.getName())
               .claim("authorities", roles)
               .signWith(key)
               .compact();
       return  Jwt;
+  }
+
+  public  String getEmailFrom_JwtToken(String jwt){
+      jwt = jwt.substring(7);
+      Claims claims = Jwts.parserBuilder()
+              .setSigningKey(key)
+              .build()
+              .parseClaimsJws(jwt)
+              .getBody();
+
+
+      String email = String.valueOf(claims.get("email"));
+      return  email;
   }
 
     private String populateAuthorities(Collection<? extends  GrantedAuthority> authorities) {

@@ -60,6 +60,10 @@ public class User implements UserDetails {
         return email;
     }
 
+    public  String getFullName(){
+        return  fullName;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -85,4 +89,20 @@ public class User implements UserDetails {
     }
 
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName= fullName;
+    }
+
+    public void setRole(USER_ROLE role) {
+        this.role=role;
+    }
+
+    public void setPassword(String password) {
+
+        this .passWord=password;
+    }
 }
