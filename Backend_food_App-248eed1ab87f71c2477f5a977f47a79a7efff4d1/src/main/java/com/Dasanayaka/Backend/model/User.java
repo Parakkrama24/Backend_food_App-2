@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -30,7 +31,9 @@ public class User implements UserDetails {
 
     private String email;
 
-    private String passWord;
+    private String passWord="123456789";
+
+
 
     @Enumerated(EnumType.STRING)
     private USER_ROLE role =USER_ROLE.ROLE_CUSTOMER;
@@ -52,6 +55,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
+        System.out.println(passWord);
         return passWord;
     }
 
@@ -66,6 +70,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
+
         return true;
     }
 
