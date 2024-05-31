@@ -2,6 +2,7 @@ package com.Dasanayaka.Backend.model;
 
 import com.Dasanayaka.Backend.dto.RestorentsDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,15 +32,15 @@ public class User implements UserDetails {
 
     private String email;
 
+   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String passWord="123456789";
-
-
 
     @Enumerated(EnumType.STRING)
     private USER_ROLE role =USER_ROLE.ROLE_CUSTOMER;
 
-    @JsonIgnore
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @JsonIgnore
     private List<Oder> oders = new ArrayList<>();
 
     @ElementCollection
@@ -55,7 +56,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        System.out.println(passWord);
+        //System.out.println(passWord);
         return passWord;
     }
 

@@ -15,10 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
+  //  @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private User customer;
 
     private Long total;
