@@ -6,6 +6,7 @@ import com.Dasanayaka.Backend.model.Resturent;
 import com.Dasanayaka.Backend.model.User;
 import com.Dasanayaka.Backend.repository.AddressRepository;
 import com.Dasanayaka.Backend.repository.RestorentRepository;
+import com.Dasanayaka.Backend.repository.UserRepository;
 import com.Dasanayaka.Backend.request.CreateRestorentRequest;
 import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class RestaurentSeviceImp implements  RestorentService{
     private  AddressRepository addressRepository;
 
     @Autowired
-    private Userservice userservice;
+    private UserRepository userRepository;
 
     //private User
 
@@ -102,11 +103,27 @@ public class RestaurentSeviceImp implements  RestorentService{
 
     @Override
     public RestorentsDto addToFavorites(Long restorentId, User user) throws Exception {
-        return null;
+        Resturent resturent= findRestorentById(restorentId);
+        RestorentsDto restorentsDto= new RestorentsDto();
+
+        restorentsDto.setDescription(resturent.getDescription());
+        restorentsDto.setImages(resturent.getImage());
+        restorentsDto.setTitle(resturent.getName());
+        restorentsDto.setId(restorentId);
+
+        if(user.getFavourites().contains(restorentsDto)){
+            user.getFavourites().remove(restorentsDto);
+        }
+        else user.getFavourites().add(restorentsDto);
+
+        userRepository.save(user);
+        return restorentsDto;
     }
 
     @Override
     public Resturent updateRestorentStatus(Long id) throws Exception {
-        return null;
+        Resturent resturent= findRestorentById(id);
+        resturent.setOpen(!resturent.isOpen());
+        return restorentRepository.save(resturent);
     }
 }

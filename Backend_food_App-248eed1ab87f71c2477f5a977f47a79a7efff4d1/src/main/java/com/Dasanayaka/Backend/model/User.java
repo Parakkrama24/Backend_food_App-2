@@ -11,7 +11,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -32,12 +31,11 @@ public class User implements UserDetails {
 
     private String email;
 
-   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String passWord="123456789";
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String passWord;
 
     @Enumerated(EnumType.STRING)
-    private USER_ROLE role =USER_ROLE.ROLE_CUSTOMER;
-
+    private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     @JsonIgnore
@@ -56,7 +54,6 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        //System.out.println(passWord);
         return passWord;
     }
 
@@ -65,13 +62,12 @@ public class User implements UserDetails {
         return email;
     }
 
-    public  String getFullName(){
-        return  fullName;
+    public String getFullName() {
+        return fullName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-
         return true;
     }
 
@@ -94,21 +90,23 @@ public class User implements UserDetails {
         return role;
     }
 
-
     public void setEmail(String email) {
         this.email = email;
     }
 
     public void setFullName(String fullName) {
-        this.fullName= fullName;
+        this.fullName = fullName;
     }
 
     public void setRole(USER_ROLE role) {
-        this.role=role;
+        this.role = role;
     }
 
     public void setPassword(String password) {
+        this.passWord = password;
+    }
 
-        this .passWord=password;
+    public List<RestorentsDto> getFavourites() {
+        return favourites;
     }
 }

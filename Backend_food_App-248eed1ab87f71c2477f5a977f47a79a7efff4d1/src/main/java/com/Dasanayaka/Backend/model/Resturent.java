@@ -2,12 +2,10 @@ package com.Dasanayaka.Backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jdk.jfr.Description;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.management.Descriptor;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +40,11 @@ public class Resturent {
 
     @ElementCollection
     @Column(length = 1000)
-    private List<String> images;
+    private List<String> images = new ArrayList<>();
 
     private LocalDateTime registrationDate;
 
-    private boolean open;
+    private boolean isOpen;
 
     @JsonIgnore
     @OneToMany(mappedBy = "resturent", cascade = CascadeType.ALL)
@@ -120,7 +118,7 @@ public class Resturent {
     }
 
     public String getCuisineType() {
-        return  cuisineType;
+        return cuisineType;
     }
 
     public String getDescription() {
@@ -128,6 +126,20 @@ public class Resturent {
     }
 
     public String getName() {
-        return  name;
+        return name;
+    }
+
+
+    public Object getImage() {
+
+        return  images;
+    }
+
+    public boolean isOpen() {
+        return  isOpen;
+    }
+
+    public void setOpen(boolean b) {
+        isOpen= b;
     }
 }
