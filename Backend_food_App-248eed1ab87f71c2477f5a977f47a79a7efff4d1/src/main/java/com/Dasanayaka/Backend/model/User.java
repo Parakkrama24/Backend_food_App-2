@@ -11,12 +11,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.lang.model.element.Name;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Table
+@Table(name = "User")
 @Entity
 @Data
 @AllArgsConstructor
@@ -108,5 +109,9 @@ public class User implements UserDetails {
 
     public List<RestorentsDto> getFavourites() {
         return favourites;
+    }
+
+    public Long getId() {
+        return  id;
     }
 }

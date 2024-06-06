@@ -15,6 +15,8 @@ public class Contactinformation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ContactId;
+
+
     private String email;
     private String mobile;
     private String X;

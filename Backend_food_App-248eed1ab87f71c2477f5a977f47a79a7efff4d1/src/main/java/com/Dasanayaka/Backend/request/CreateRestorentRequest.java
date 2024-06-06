@@ -14,13 +14,13 @@ public class CreateRestorentRequest {
 
     private String name;
 
-    private String decription;
+    private String description;
 
     private String cuisineType;
 
     private Address address;
 
-    private Contactinformation contactinformation;
+  private String contactinformation;
 
     private  String openHours;
 
@@ -32,7 +32,7 @@ public class CreateRestorentRequest {
         return  address;
     }
 
-    public Object getContactInformation() {
+    public String  getContactInformation() {
         return  contactinformation;
     }
 
@@ -45,7 +45,7 @@ public class CreateRestorentRequest {
     }
 
     public Object getDiscription() {
-        return  decription;
+        return  description;
     }
 
     public Object getName() {
