@@ -142,4 +142,12 @@ public class Resturent {
     public void setOpen(boolean b) {
         isOpen= b;
     }
+
+    public Long getId(){
+        return id;
+    }
+
+    public  void setId(Long _id){
+        id= _id;
+    }
 }

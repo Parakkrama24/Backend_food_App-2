@@ -2,6 +2,7 @@ package com.Dasanayaka.Backend.request;
 
 import com.Dasanayaka.Backend.model.Address;
 import com.Dasanayaka.Backend.model.Contactinformation;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 public class CreateRestorentRequest {
 
+    @jakarta.persistence.Id
     private Long Id;
 
     private String name;

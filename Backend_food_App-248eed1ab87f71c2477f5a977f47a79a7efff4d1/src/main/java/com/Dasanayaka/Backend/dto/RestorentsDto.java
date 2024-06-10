@@ -43,4 +43,8 @@ public class RestorentsDto {
     public void setId(Long restorentId) {
         id= restorentId;
     }
+
+    public Object getId() {
+        return  id;
+    }
 }

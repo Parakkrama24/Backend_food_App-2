@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/restaurant")
+@RequestMapping("restaurant")
 public class RestaurantController {
 
     @Autowired
@@ -58,7 +58,7 @@ public class RestaurantController {
         return  new ResponseEntity<>(resturent, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}/add-favourite")
+    @PutMapping("/{id}/add-favourite")
     public ResponseEntity<RestorentsDto> addToFavourite   (
 
             @RequestHeader("Authorization") String jwt,

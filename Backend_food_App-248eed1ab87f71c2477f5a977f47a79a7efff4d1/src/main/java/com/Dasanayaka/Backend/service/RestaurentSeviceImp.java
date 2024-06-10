@@ -111,10 +111,26 @@ public class RestaurentSeviceImp implements  RestorentService{
         restorentsDto.setTitle(resturent.getName());
         restorentsDto.setId(restorentId);
 
-        if(user.getFavourites().contains(restorentsDto)){
-            user.getFavourites().remove(restorentsDto);
+        boolean isFavourite = false;
+        List<RestorentsDto> favourites = user.getFavourites();
+        for (RestorentsDto favourite : favourites){
+            if (favourite.getId().equals(restorentId)) {
+
+                isFavourite= true;
+                break;
+            }
         }
-        else user.getFavourites().add(restorentsDto);
+        if(isFavourite){
+            favourites.removeIf(favourite->favourite.getId().equals(restorentId));
+
+        }else {
+            favourites.add(restorentsDto);
+        }
+
+//        if(user.getFavourites().contains(restorentsDto)){
+//            user.getFavourites().remove(restorentsDto);
+//        }
+//        else user.getFavourites().add(restorentsDto);
 
         userRepository.save(user);
         return restorentsDto;

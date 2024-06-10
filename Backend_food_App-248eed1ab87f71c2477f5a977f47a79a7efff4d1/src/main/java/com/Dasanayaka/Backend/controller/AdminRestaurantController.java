@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.Console;
 
 @RestController
-@RequestMapping("/restaurant")
+@RequestMapping("/admin/restaurant")
 public class AdminRestaurantController {
 
     @Autowired
@@ -63,7 +63,7 @@ public class AdminRestaurantController {
         return  new ResponseEntity<>(messageResponse,HttpStatus.OK);
     }
 
-    @PutMapping("/user")
+    @GetMapping("/user")
     public  ResponseEntity<Resturent> findRestaurantByuserId(
 
             @RequestHeader ("Authorization") String jwt
