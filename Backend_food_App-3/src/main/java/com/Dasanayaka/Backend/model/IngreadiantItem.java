@@ -27,5 +27,6 @@ public class IngreadiantItem {
     @ManyToOne
     private Resturent restorent;
 
+
     private boolean inStock = true;
 }

@@ -30,7 +30,13 @@ public class FoodServiceImp implements  FoodService {
         food.setImages(req.getImages());
         food.setName(req.getName());
         food.setPrice(req.getPrice());
-        return null;
+        //food.setIngredientItem(req.getIngrediants());
+        food.setSeasonal(req.isSeasional());
+        food.setVegetarian(req.isVegitarin());
+        Food savedFood=  foodRepository.save(food);
+        resturent.getFood().add(savedFood);
+        return savedFood;
+
     }
 
     @Override

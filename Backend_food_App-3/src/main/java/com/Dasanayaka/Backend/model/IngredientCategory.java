@@ -25,6 +25,9 @@ public class IngredientCategory {
     @ManyToOne
     private Resturent restorent;
 
+    @OneToMany(mappedBy = "category")
+    private List<IngreadiantItem> ingredientItems;
+
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // Corrected mappedBy attribute
     private List<IngreadiantItem> ingredieantItem = new ArrayList<>();
 }

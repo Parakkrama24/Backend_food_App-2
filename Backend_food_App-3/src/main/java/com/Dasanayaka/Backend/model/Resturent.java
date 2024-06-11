@@ -150,4 +150,9 @@ public class Resturent {
     public  void setId(Long _id){
         id= _id;
     }
+
+    public <E> List<E> getFood() {
+        List<E> foodList = new ArrayList<>();
+        return foodList;
+    }
 }

@@ -36,4 +36,16 @@ public class CreateFoodRequest {
     public Object getPrice() {
         return Price;
     }
+
+    public Object getIngrediants() {
+        return  ingreadiants;
+    }
+
+    public Object isSeasional() {
+        return  seasional;
+    }
+
+    public Object isVegitarin() {
+        return  vegitarian;
+    }
 }

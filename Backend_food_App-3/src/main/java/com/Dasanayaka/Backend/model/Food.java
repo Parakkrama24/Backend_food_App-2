@@ -43,6 +43,10 @@ public class Food {
 
     private boolean isSeasonal;
 
+    @ManyToOne
+    @JoinColumn(name = "ingredient_item_id")
+    private IngreadiantItem ingredientItem;
+
     private Date createdDate;
 
     // Custom setters for foodCategory and restaurant
@@ -99,5 +103,29 @@ public class Food {
 
     public void setRestauraent(Resturent resturent) {
         this.restaurant = restaurant;
+    }
+
+//    public void setIngredientItem(Object ingredientItem) {
+//        if (ingredientItem instanceof IngreadiantItem) {
+//            this.ingreadiantItem = (IngreadiantItem) ingredientItem;
+//        } else {
+//            throw new IllegalArgumentException("IngredientItem should be an instance of IngredientItem.");
+//        }
+//    }
+
+    public void setVegetarian(Object vegetarian) {
+        if (vegetarian instanceof Boolean) {
+            this.isVegetarian = (Boolean) vegetarian;
+        } else {
+            throw new IllegalArgumentException("Vegetarian should be a boolean.");
+        }
+    }
+
+    public void setSeasonal(Object seasonal) {
+        if (seasonal instanceof Boolean) {
+            this.isSeasonal = (Boolean) seasonal;
+        } else {
+            throw new IllegalArgumentException("Seasonal should be a boolean.");
+        }
     }
 }

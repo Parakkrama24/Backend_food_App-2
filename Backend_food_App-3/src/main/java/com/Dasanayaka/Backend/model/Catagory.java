@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Table
 @Data
 @Entity
@@ -16,5 +18,8 @@ public class Catagory {
     private Long id;
 
     private String name; // Add a field to avoid an empty entity
+
+    @OneToMany(mappedBy = "foodCategory")
+    private List<Food> foods;
 
 }
