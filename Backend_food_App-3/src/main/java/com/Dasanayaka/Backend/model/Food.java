@@ -1,7 +1,6 @@
 package com.Dasanayaka.Backend.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,8 +35,9 @@ public class Food {
     @JoinColumn(name = "restaurant_id")
     private Resturent restaurant;
 
-    @Enumerated(EnumType.STRING)
-    private Category foodCategory;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Catagory foodCategory;
 
     private boolean isVegetarian;
 
@@ -46,7 +46,7 @@ public class Food {
     private Date createdDate;
 
     // Custom setters for foodCategory and restaurant
-    public void setFoodCategory(Category foodCategory) {
+    public void setFoodCategory(Catagory foodCategory) {
         this.foodCategory = foodCategory;
     }
 
@@ -95,5 +95,9 @@ public class Food {
         } else {
             throw new IllegalArgumentException("Price should be a Long or a Number that can be converted to Long.");
         }
+    }
+
+    public void setRestauraent(Resturent resturent) {
+        this.restaurant = restaurant;
     }
 }

@@ -47,7 +47,7 @@ public class Resturent {
     private boolean isOpen;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "resturent", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
 
     private String contactInformation; // Add this field to store contact information

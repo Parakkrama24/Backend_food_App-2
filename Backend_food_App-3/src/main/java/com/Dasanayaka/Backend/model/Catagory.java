@@ -15,4 +15,6 @@ public class Catagory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name; // Add a field to avoid an empty entity
+
 }

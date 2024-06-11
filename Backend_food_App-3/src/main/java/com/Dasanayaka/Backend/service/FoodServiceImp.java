@@ -1,14 +1,16 @@
 package com.Dasanayaka.Backend.service;
 
+import com.Dasanayaka.Backend.model.Catagory;
+import com.Dasanayaka.Backend.model.ECatagory;
 import com.Dasanayaka.Backend.model.Food;
 import com.Dasanayaka.Backend.model.Resturent;
 import com.Dasanayaka.Backend.repository.FoodRepository;
 import com.Dasanayaka.Backend.request.CreateFoodRequest;
-import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class FoodServiceImp implements  FoodService {
@@ -19,7 +21,7 @@ public class FoodServiceImp implements  FoodService {
 
 
     @Override
-    public Food createFood(CreateFoodRequest req, Category category, Resturent resturent) {
+    public Food createFood(CreateFoodRequest req, Catagory category, Resturent resturent) {
 
         Food food = new Food();
         food.setFoodCategory(category);
