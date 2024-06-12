@@ -30,4 +30,17 @@ public class IngredientCategory {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // Corrected mappedBy attribute
     private List<IngreadiantItem> ingredieantItem = new ArrayList<>();
+
+    public void setRestaurant(Resturent resturent) {
+        restorent=resturent;
+    }
+
+    public void setName(String _name) {
+        name= _name;
+    }
+
+    public <E> List<E> getIngredients() {
+        List<E> ingredieantList = new ArrayList<>();
+        return ingredieantList;
+    }
 }

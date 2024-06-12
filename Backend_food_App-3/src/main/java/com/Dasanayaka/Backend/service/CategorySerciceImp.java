@@ -21,7 +21,7 @@ public class CategorySerciceImp implements  CategoryService{
 
     @Override
     public Catagory CreateCategory(String name, Long userId) throws Exception {
-        Resturent resturent= restorentService.findRestorentById(userId);
+        Resturent resturent= restorentService.getRestorentByUserId(userId);
         Catagory catagory= new Catagory();
         catagory.setName(name);
         return categoryRepository.save(catagory);
@@ -30,7 +30,8 @@ public class CategorySerciceImp implements  CategoryService{
 
     @Override
     public List<Catagory> findCategoryByRestaurantId(Long id) throws Exception {
-        return categoryRepository.findByRestaurantId(id);
+        Resturent resturent= restorentService.getRestorentByUserId(id);
+        return categoryRepository.findByRestaurantId(resturent.getId());
     }
 
     @Override

@@ -29,4 +29,27 @@ public class IngreadiantItem {
 
 
     private boolean inStock = true;
+
+    public void setName(String ingredientName) {
+        name=ingredientName;
+    }
+
+    public void setRestaurant(Resturent resturent) {
+        restorent= resturent;
+    }
+
+
+    public void setCategory(IngredientCategory iCategory) {
+        category=iCategory;
+    }
+
+
+    public boolean InStoke() {
+        return  inStock;
+    }
+
+    public void setInStoke(boolean b) {
+        inStock=b;
+    }
 }
+
