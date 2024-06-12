@@ -140,4 +140,12 @@ public class Food {
     public Catagory getFoodCategory() {
         return foodCategory;
     }
+
+    public boolean isAvailable() {
+        return  available;
+    }
+
+    public void setAvailable(boolean b) {
+        available=b;
+    }
 }

@@ -1,6 +1,7 @@
 package com.Dasanayaka.Backend.request;
 
 
+import com.Dasanayaka.Backend.model.Catagory;
 import com.Dasanayaka.Backend.model.IngreadiantItem;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ public class CreateFoodRequest {
     private String name;
     private String Description;
     private Long Price;
-    private Long category;
+    private Catagory category;
     private List<String> images;
 
     private Long RestaurantId;
@@ -47,5 +48,12 @@ public class CreateFoodRequest {
 
     public Object isVegitarin() {
         return  vegitarian;
+    }
+
+    public Long getRestaurantId() { return RestaurantId;
+    }
+
+    public Catagory getCategory() {
+        return category;
     }
 }
