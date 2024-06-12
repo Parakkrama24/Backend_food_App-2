@@ -50,7 +50,14 @@ public class Resturent {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
 
+
     private String contactInformation; // Add this field to store contact information
+
+    @ManyToOne
+    @JoinColumn(name = "catagory_id")
+    private Catagory catagory;
+
+
 
     public void setAddress(Address _address) {
         this.address = _address;
