@@ -22,4 +22,7 @@ public class Catagory {
     @OneToMany(mappedBy = "foodCategory")
     private List<Food> foods;
 
+    public String getName() {
+        return name;
+    }
 }

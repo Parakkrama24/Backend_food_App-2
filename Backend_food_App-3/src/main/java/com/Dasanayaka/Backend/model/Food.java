@@ -105,13 +105,13 @@ public class Food {
         this.restaurant = restaurant;
     }
 
-//    public void setIngredientItem(Object ingredientItem) {
-//        if (ingredientItem instanceof IngreadiantItem) {
-//            this.ingreadiantItem = (IngreadiantItem) ingredientItem;
-//        } else {
-//            throw new IllegalArgumentException("IngredientItem should be an instance of IngredientItem.");
-//        }
-//    }
+    public void setIngredientItem(Object ingredientItem) {
+        if (ingredientItem instanceof IngreadiantItem) {
+            this.ingredientItem = (IngreadiantItem) ingredientItem;
+        } else {
+            throw new IllegalArgumentException("IngredientItem should be an instance of IngredientItem.");
+        }
+    }
 
     public void setVegetarian(Object vegetarian) {
         if (vegetarian instanceof Boolean) {
@@ -127,5 +127,17 @@ public class Food {
         } else {
             throw new IllegalArgumentException("Seasonal should be a boolean.");
         }
+    }
+
+    public boolean isVegitarin() {
+        return isVegetarian;
+    }
+
+    public boolean isSeasonal() {
+        return isSeasonal;
+    }
+
+    public Catagory getFoodCategory() {
+        return foodCategory;
     }
 }
