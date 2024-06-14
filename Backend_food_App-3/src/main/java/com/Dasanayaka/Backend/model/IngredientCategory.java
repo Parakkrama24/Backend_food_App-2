@@ -23,7 +23,7 @@ public class IngredientCategory {
 
     @JsonIgnore
     @ManyToOne
-    private Resturent restorent;
+    private Resturent restaurant;
 
     @OneToMany(mappedBy = "category")
     private List<IngreadiantItem> ingredientItems;
@@ -31,8 +31,8 @@ public class IngredientCategory {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // Corrected mappedBy attribute
     private List<IngreadiantItem> ingredieantItem = new ArrayList<>();
 
-    public void setRestaurant(Resturent resturent) {
-        restorent=resturent;
+    public void setRestaurant(Resturent _resturent) {
+        restaurant=_resturent;
     }
 
     public void setName(String _name) {

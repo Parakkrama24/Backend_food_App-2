@@ -25,7 +25,7 @@ public class IngreadiantItem {
 
     @JsonIgnore
     @ManyToOne
-    private Resturent restorent;
+    private Resturent restaurant;
 
 
     private boolean inStock = true;
@@ -34,8 +34,8 @@ public class IngreadiantItem {
         name=ingredientName;
     }
 
-    public void setRestaurant(Resturent resturent) {
-        restorent= resturent;
+    public void setRestaurant(Resturent _resturent) {
+        restaurant= _resturent;
     }
 
 

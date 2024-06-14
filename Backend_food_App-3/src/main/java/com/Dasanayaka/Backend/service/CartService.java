@@ -16,4 +16,8 @@ public interface CartService {
     public Long calculatedCartTotals(Cart cart) throws Exception;
 
     public Cart findCartById(Long id) throws  Exception;
+
+    public Cart findCartByUserId(Long userId) throws Exception;
+
+    public  Cart  clearCart(Long userId) throws  Exception;
  }
