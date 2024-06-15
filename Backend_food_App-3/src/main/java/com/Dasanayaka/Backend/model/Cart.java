@@ -37,4 +37,12 @@ public class Cart {
     public List<CartItem> getItemsList() {
         return items;
     }
+
+    public Object getTatal() {
+        return total;
+    }
+
+    public void setTotal(Long aLong) {
+        total= aLong;
+    }
 }

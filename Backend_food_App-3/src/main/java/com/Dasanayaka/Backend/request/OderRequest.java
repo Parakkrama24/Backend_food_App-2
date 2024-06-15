@@ -8,4 +8,12 @@ public class OderRequest {
     private Long restaurantId;
 
     private Address delivaryAddress;
+
+    public Address getDilevaryAddress() {
+        return delivaryAddress;
+    }
+
+    public Long getResaurantId() {
+        return restaurantId;
+    }
 }

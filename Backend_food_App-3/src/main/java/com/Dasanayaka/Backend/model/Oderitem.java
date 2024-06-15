@@ -26,4 +26,21 @@ public class Oderitem {
     private Long totalPrice;
 
     private List<String> ingredieants;
+
+    public void setFood(Food _food) {
+        food= _food;
+    }
+
+
+    public void setIngrediants(List<String> _ingredients) {
+        ingredieants=_ingredients;
+    }
+
+    public void setQuantity(int _quantity) {
+        quantity=_quantity;
+    }
+
+    public void setTotolPrice(Long _price) {
+        totalPrice=_price;
+    }
 }

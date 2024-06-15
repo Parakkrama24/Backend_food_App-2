@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -25,13 +26,13 @@ public class Oder {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "resturent_id") // Ensure the foreign key column name is specified correctly
-    private Resturent resturent; // Changed to singular form to match the `mappedBy` property
+    private Resturent restaurant; // Changed to singular form to match the `mappedBy` property
 
     private Long totalAmount;
 
     private String orderStatus;
 
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne
     private Address deliveryAddress;
@@ -41,5 +42,41 @@ public class Oder {
 
     private int totalItems;
 
-    private int totalPrice;
+    private Long totalPrice;
+
+    public void setCreatedAt(LocalDateTime now) {
+        createdAt= now;
+    }
+
+    public void setCustomer(User user) {
+        customer=user;
+    }
+
+    public void setOderStatus(String pending) {
+        orderStatus= pending;
+    }
+
+    public void setDelivaryAddress(Address savedAddress) {
+
+        deliveryAddress=savedAddress;
+    }
+
+    public void setRestaurant(Resturent _resturent) {
+        restaurant=_resturent;
+    }
+
+
+
+
+    public void setOderitems(List<Oderitem> oderitems) {
+        items=oderitems;
+    }
+
+    public void setTotalPrice(Long _totalPrice) {
+        totalPrice= _totalPrice;
+    }
+
+    public String getOderStatus() {
+        return  orderStatus;
+    }
 }

@@ -35,7 +35,7 @@ public class Resturent {
 
     private String openingHours;
 
-    @OneToMany(mappedBy = "resturent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Oder> order = new ArrayList<>(); // Ensure property name matches the target entity
 
     @ElementCollection
@@ -161,5 +161,11 @@ public class Resturent {
     public <E> List<E> getFood() {
         List<E> foodList = new ArrayList<>();
         return foodList;
+    }
+
+
+    public <E> List<E> getOrders() {
+        List<E>  order= new ArrayList<>();
+        return order;
     }
 }
