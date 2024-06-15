@@ -148,4 +148,8 @@ public class Food {
     public void setAvailable(boolean b) {
         available=b;
     }
+
+    public Long getPrice() {
+        return  price;
+    }
 }

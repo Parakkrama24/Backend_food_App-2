@@ -7,11 +7,11 @@ import com.Dasanayaka.Backend.request.AddCartItemRequest;
 
 public interface CartService {
 
-    public CartItem addItemToCart(AddCartItemRequest req , String jwt, User user) throws Exception;
+    public CartItem addItemToCart(AddCartItemRequest req , String jwt) throws Exception;
 
     public CartItem updateCartItemQuantity(Long cartItemId,int quantity) throws  Exception;
 
-    public Cart removeItemFromCartTotal(Long cartItem, String jwt) throws Exception;
+    public Cart removeItemFromCart(Long cartItem, String jwt) throws Exception;
 
     public Long calculatedCartTotals(Cart cart) throws Exception;
 

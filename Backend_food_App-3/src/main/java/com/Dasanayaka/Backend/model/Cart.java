@@ -11,24 +11,30 @@ import java.util.List;
 @Table
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-  //  @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private User customer;
+    private User customerId;
 
     private Long total;
 
-    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<CartItem> item = new ArrayList<>();
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> items = new ArrayList<>();
 
-    public void setCustomer(User craerteUser) {
+    public void setCustomer(User createUser) {
+        this.customerId = createUser;
+    }
 
-        this.customer= craerteUser;
+    public CartItem[] getItems() {
+        return items.toArray(new CartItem[0]);
+    }
+
+    public List<CartItem> getItemsList() {
+        return items;
     }
 }
